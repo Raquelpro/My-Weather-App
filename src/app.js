@@ -55,7 +55,29 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Dallas");
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiustLink = document.querySelector("#celsius-link");
+celsiustLink.addEventListener("click", convertToCelsius);
+
+search("Dallas");
