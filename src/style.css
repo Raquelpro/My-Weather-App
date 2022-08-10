@@ -64,3 +64,14 @@ li {
   font-size: 16px;
   top: -34px;
 }
+
+.weather-forcast {
+  padding: 20px;
+  border: 3px solid #dadde1;
+  border-radius: 8px;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+}
