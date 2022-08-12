@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Fri", "Sat", "Sun", "Mon", "Tus", "Wed"];
@@ -50,7 +51,7 @@ function displayForecast() {
 function getForecast(coordinates) {
   let apiKey = "3ed26e20a2e7286d23126eb51e31f310";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -115,4 +116,3 @@ let celsiustLink = document.querySelector("#celsius-link");
 celsiustLink.addEventListener("click", convertToCelsius);
 
 search("Dallas");
-displayForecast();
